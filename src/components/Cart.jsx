@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { StateContextCustom } from "../context/context";
+import { StateContextCustom } from "../../Context";
 
-const Cart = ({id, title, price, image,Intotal,Detotal}) => {
-    const item = {id,title, price, image}
+const Cart = ({ id, title, price, image, Intotal, Detotal }) => {
+  const item = { id, title, price, image };
   const [increse, setIncrese] = useState(1);
   const inPrice = price * increse;
   const qtyIn = () => {
@@ -12,18 +12,16 @@ const Cart = ({id, title, price, image,Intotal,Detotal}) => {
   const qtyDe = () => {
     if (increse > 1) {
       setIncrese(increse - 1);
-      Detotal(price)
+      Detotal(price);
     }
   };
 
-  const{dispatch} = StateContextCustom();
+  const { dispatch } = StateContextCustom();
 
-  const del =()=>{
-    dispatch({type: 'DEL_BTN', payload: id });
+  const del = () => {
+    dispatch({ type: "DEL_BTN", payload: id });
     Detotal(inPrice);
-}
-
-
+  };
 
   return (
     <div className="container max-h-[300px] bg-slate-200 my-4 p-5 rounded-md align-middle max-w-[700px] mx-auto flex justify-between">
@@ -32,7 +30,9 @@ const Cart = ({id, title, price, image,Intotal,Detotal}) => {
         <div className="ms-5 ">
           <p>{title}</p>
           <p>{inPrice.toFixed(2)}</p>
-          <p onClick={del} className="text-red-500">Remove</p>
+          <p onClick={del} className="text-red-500">
+            Remove
+          </p>
         </div>
       </div>
       <div>

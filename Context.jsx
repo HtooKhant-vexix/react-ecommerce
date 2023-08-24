@@ -14,6 +14,7 @@ export const StateContextProvider = ({ children }) => {
     const {data} = await axios.get("https://fakestoreapi.com/products");
     setList(data);
   }
+  
   useEffect(()=>{
     productList();
   },[]);
