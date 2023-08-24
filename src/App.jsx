@@ -3,7 +3,7 @@ import {Routes,Route} from 'react-router-dom';
 import Product from './components/Product';
 import './index.css'
 import Nav from './components/Nav';
-import AddToCart from './components/addToCart';
+import AddToCart from './components/AddToCart';
 const App = () => {
   return (
     <div>
